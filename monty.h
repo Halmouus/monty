@@ -57,6 +57,7 @@ int lenStack(stack_t **stack);
 int isValidCommand(char *str);
 void read_monty(const char *filename);
 int isInteger(char *str);
+int isComment(char *str);
 void (*get_instruction(const char *str))(stack_t **, unsigned int);
 
 #endif

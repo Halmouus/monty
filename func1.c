@@ -63,6 +63,17 @@ void (*get_instruction(const char *str))(stack_t **, unsigned int) {
 }
 
 /**
+ * isComment - check if str is a comment
+ * @str: string to be checked
+ * Return: 1 if comment, 0 if not
+ */
+int isComment(char *str) {
+    if (str[0] == '#')
+        return 1;
+    return 0;
+}
+
+/**
  * read_monty - reads a monty file
  * @filename: name of the file
  */
@@ -83,7 +94,7 @@ void read_monty(const char *filename) {
     while ((r = getline(&buff, &len, file)) != -1) {
         m_line++;
         token = strtok(buff, " \n\t");
-        if (!token) {
+        if (!token || isComment(token)) {
             continue;
         }
         else if (isValidCommand(token)) {

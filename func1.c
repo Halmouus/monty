@@ -23,7 +23,7 @@ int isInteger(char *str) {
  * Return: 1 if valid, 0 if not
  */
 int isValidCommand(char *str) {
-    char *cmd_vector[] = {"push", "pall", "pint", "pop", "swap", "add", "nop", NULL};
+    char *cmd_vector[] = {"push", "pall", "pint", "pop", "swap", "add", "nop", "mul", "div", "sub", "mod", NULL};
     int i = 0;
     while (cmd_vector[i]) {
         if (strcmp(str, cmd_vector[i]) == 0)
@@ -47,6 +47,10 @@ void (*get_instruction(const char *str))(stack_t **, unsigned int) {
         {"add", add},
         {"swap", swap},
         {"nop", nop},
+        {"sub", sub},
+        {"div", op_div},
+        {"mul", mul},
+        {"mod", mod},
         {NULL, NULL},
     };
     while(instrucs[i].opcode) {

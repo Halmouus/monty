@@ -53,6 +53,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void op_div(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 int lenStack(stack_t **stack);
 int isValidCommand(char *str);
 void read_monty(const char *filename);

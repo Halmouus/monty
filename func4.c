@@ -71,7 +71,7 @@ void mul(stack_t **stack, unsigned int line_number) {
 }
 
 /**
- * mod - div opcode
+ * mod - mod opcode
  * @stack: the stack to operate
  * @line_number : line number of the monty file
  */
@@ -94,4 +94,22 @@ void mod(stack_t **stack, unsigned int line_number) {
     (*stack)->n = valmod;
     free(temp);
     temp = NULL;
+}
+
+/**
+ * pchar - pchar opcode
+ * @stack: the stack to operate
+ * @line_number : line number of the monty file
+ */
+void pchar(stack_t **stack, unsigned int line_number) {
+    int val = (*stack)->n;
+    if (val < 0 || val > 127) {
+        fprintf(stderr,"L%u: can't pchar, value out of range\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    if (isempty(stack)) {
+        fprintf(stderr,"L%u: can't pchar, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    printf("%c\n", val);
 }
